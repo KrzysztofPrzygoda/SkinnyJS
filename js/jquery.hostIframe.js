@@ -36,9 +36,7 @@
 
     // If the current jQuery object contains an iframe, this gets a jQuery object containing the iframe's content window
     $.fn.iframeWindow = function () {
-        return this.map(function (index, iframe) {
-            return iframe.contentWindow;
-        });
+        return this.is('iframe') ? (this[0].contentWindow || this[0].contentDocument) : null;
     };
 
 })(jQuery);
